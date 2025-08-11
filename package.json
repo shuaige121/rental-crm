@@ -1,0 +1,29 @@
+{
+  "name": "rental-crm",
+  "version": "1.0.0",
+  "description": "Rental Business CRM System with FlutterFlow and Firebase",
+  "scripts": {
+    "setup": "npm run setup:functions && npm run setup:firebase",
+    "setup:functions": "cd functions && npm install",
+    "setup:firebase": "firebase login && firebase use default",
+    "dev": "npm run emulators",
+    "emulators": "firebase emulators:start --import=./emulator-data --export-on-exit",
+    "deploy": "npm run deploy:rules && npm run deploy:functions",
+    "deploy:rules": "firebase deploy --only firestore:rules,storage:rules",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:all": "firebase deploy",
+    "backup": "npm run backup:firestore",
+    "backup:firestore": "gcloud firestore export gs://leonard-rental-crm-backups/$(date +%Y%m%d_%H%M%S)",
+    "test": "cd functions && npm test",
+    "lint": "cd functions && npm run lint"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shuaige121/rental-crm.git"
+  },
+  "author": "Leonard Chow Yi Ding",
+  "license": "MIT"
+}

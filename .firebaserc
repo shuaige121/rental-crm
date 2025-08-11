@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "leonard-rental-crm",
+    "production": "leonard-rental-crm-prod",
+    "staging": "leonard-rental-crm-staging"
+  },
+  "targets": {},
+  "etags": {}
+}
